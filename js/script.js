@@ -134,6 +134,9 @@ function enterFullscreen() {
     setTimeout(() => {
         btn.style.display = 'none';
     }, 300);
+
+    // Add fullscreen class to body
+    document.body.classList.add('is-fullscreen');
 }
 
 // Show button when exiting fullscreen
@@ -153,6 +156,11 @@ function handleFullscreenChange() {
         setTimeout(() => {
             btn.style.opacity = '1';
         }, 10);
+        // Remove fullscreen class
+        document.body.classList.remove('is-fullscreen');
+    } else {
+        // Ensure class is added (backup)
+        document.body.classList.add('is-fullscreen');
     }
 }
 
