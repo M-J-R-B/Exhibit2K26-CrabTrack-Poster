@@ -115,3 +115,54 @@ function closeSensorPanel() {
     panelContent.innerHTML = '<p class="panel-prompt">Click on any sensor above to discover how it helps monitor crab pond conditions.</p>';
     panelSpecs.innerHTML = '';
 }
+
+// Fullscreen functionality
+function enterFullscreen() {
+    const elem = document.documentElement;
+    const btn = document.getElementById('fullscreenBtn');
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { // Safari
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE11
+        elem.msRequestFullscreen();
+    }
+
+    // Hide the button after entering fullscreen
+    btn.style.opacity = '0';
+    setTimeout(() => {
+        btn.style.display = 'none';
+    }, 300);
+}
+
+// Show button when exiting fullscreen
+document.addEventListener('fullscreenchange', handleFullscreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+function handleFullscreenChange() {
+    const btn = document.getElementById('fullscreenBtn');
+    const isFullscreen = document.fullscreenElement ||
+                        document.webkitFullscreenElement ||
+                        document.msFullscreenElement;
+
+    if (!isFullscreen) {
+        // Show button when exiting fullscreen
+        btn.style.display = 'flex';
+        setTimeout(() => {
+            btn.style.opacity = '1';
+        }, 10);
+    }
+}
+
+// Optional: Press ESC to show exit fullscreen hint
+let escPressCount = 0;
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && (document.fullscreenElement || document.webkitFullscreenElement)) {
+        escPressCount++;
+        if (escPressCount === 1) {
+            // You can add a tooltip here if needed
+        }
+    }
+});
