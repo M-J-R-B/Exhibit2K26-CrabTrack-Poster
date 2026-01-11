@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrabTrack - Aquaculture Monitoring System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="poster">
+        <!-- Background effects -->
+        <div class="water-bg"></div>
+        <div class="wave-pattern"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="crab-icon">🦀</div>
+                <div class="title-group">
+                    <h1>CRABTRACK</h1>
+                    <span class="tagline">Smart Aquaculture Monitoring System</span>
+                </div>
+            </div>
+            <p class="subtitle">An IoT-Based Water Quality Monitoring Solution for Crab Farming</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Problem Statement -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon problem">⚠️</div>
+                    <h2 class="section-title problem">PROBLEM STATEMENT</h2>
+                </div>
+                <div class="section-content problem">
+                    <p>
+                        Traditional crab farming in the Philippines relies heavily on <strong>manual water quality monitoring</strong>,
+                        which is time-consuming, prone to human error, and often results in delayed responses to critical
+                        environmental changes. Farmers lack access to <strong>real-time data</strong> about water parameters such as
+                        temperature, pH levels, and dissolved oxygen—factors that directly impact crab survival and growth rates.
+                        This leads to <strong>significant mortality rates</strong>, reduced yields, and substantial economic losses
+                        for local aquaculture communities.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Proposed Solution -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon solution">💡</div>
+                    <h2 class="section-title solution">PROPOSED SOLUTION</h2>
+                </div>
+                <div class="section-content solution">
+                    <p>
+                        CrabTrack is an <strong>ESP32-based IoT monitoring system</strong> that provides real-time tracking of
+                        critical water quality parameters in crab ponds. The system integrates multiple sensors to continuously
+                        measure temperature, pH, turbidity, and salinity levels, transmitting data to <strong>Firebase</strong>
+                        for cloud storage and analysis. Farmers receive <strong>instant mobile notifications</strong> when
+                        parameters fall outside optimal ranges, enabling proactive intervention. An intuitive
+                        <strong>Android application</strong> provides dashboard visualization, historical trends, and
+                        threshold configuration.
+                    </p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="icon">📡</div>
+                            <div class="label">Real-Time Monitoring</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">🔔</div>
+                            <div class="label">Smart Alerts</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">📊</div>
+                            <div class="label">Data Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Impact -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon impact">🎯</div>
+                    <h2 class="section-title impact">SYSTEM IMPACT & CONTRIBUTION</h2>
+                </div>
+                <div class="section-content impact">
+                    <p>
+                        CrabTrack empowers Filipino crab farmers with <strong>accessible, affordable technology</strong> to
+                        modernize their operations. By enabling early detection of adverse water conditions, the system helps
+                        <strong>reduce crab mortality rates</strong> and optimize growth conditions. The collected data contributes
+                        to building a <strong>knowledge base for sustainable aquaculture practices</strong>, while the
+                        cost-effective design ensures adoption feasibility for small-scale farmers. This solution bridges the
+                        gap between traditional farming methods and <strong>precision aquaculture</strong>.
+                    </p>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-value">24/7</div>
+                            <div class="metric-label">Continuous Monitoring</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">&lt;1s</div>
+                            <div class="metric-label">Alert Response Time</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4+</div>
+                            <div class="metric-label">Parameters Tracked</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Sensor Explorer -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon explorer">🔬</div>
+                    <h2 class="section-title explorer">EXPLORE OUR SENSORS</h2>
+                </div>
+                <p class="explorer-subtitle">Click on each sensor to learn more about its function</p>
+
+                <div class="sensor-grid">
+                    <div class="sensor-card" data-sensor="temperature" onclick="showSensorInfo('temperature')">
+                        <div class="sensor-icon">🌡️</div>
+                        <div class="sensor-name">Temperature</div>
+                        <div class="sensor-model">DS18B20</div>
+                        <div class="sensor-glow"></div>
+                    </div>
+
+                    <div class="sensor-card" data-sensor="ph" onclick="showSensorInfo('ph')">
+                        <div class="sensor-icon">⚗️</div>
+                        <div class="sensor-name">pH Level</div>
+                        <div class="sensor-model">PH-4502C</div>
+                        <div class="sensor-glow"></div>
+                    </div>
+
+                    <div class="sensor-card" data-sensor="turbidity" onclick="showSensorInfo('turbidity')">
+                        <div class="sensor-icon">💧</div>
+                        <div class="sensor-name">Turbidity</div>
+                        <div class="sensor-model">SEN0189</div>
+                        <div class="sensor-glow"></div>
+                    </div>
+
+                    <div class="sensor-card" data-sensor="salinity" onclick="showSensorInfo('salinity')">
+                        <div class="sensor-icon">🧂</div>
+                        <div class="sensor-name">Salinity</div>
+                        <div class="sensor-model">TDS Meter</div>
+                        <div class="sensor-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Sensor Info Panel -->
+                <div class="sensor-info-panel" id="sensorPanel">
+                    <div class="panel-header">
+                        <span class="panel-icon" id="panelIcon">👆</span>
+                        <span class="panel-title" id="panelTitle">Select a Sensor</span>
+                        <button class="panel-close" onclick="closeSensorPanel()">×</button>
+                    </div>
+                    <div class="panel-content" id="panelContent">
+                        <p class="panel-prompt">Click on any sensor above to discover how it helps monitor crab pond conditions.</p>
+                    </div>
+                    <div class="panel-specs" id="panelSpecs"></div>
+                </div>
+
+                <!-- ESP32 Central Unit -->
+                <div class="esp32-section">
+                    <div class="esp32-card" onclick="showSensorInfo('esp32')">
+                        <div class="esp32-icon">🔌</div>
+                        <div class="esp32-info">
+                            <div class="esp32-name">ESP32 Microcontroller</div>
+                            <div class="esp32-desc">The brain that connects all sensors and transmits data to the cloud</div>
+                        </div>
+                        <div class="esp32-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">ONLINE</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack -->
+            <div class="tech-stack">
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Android</span>
+                <span class="tech-tag">IoT Sensors</span>
+                <span class="tech-tag">Real-Time Database</span>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="institution">
+                <strong>University of Cebu - Banilad Campus</strong>
+                College of Computer Studies<br>
+                Capstone Project 2025
+            </div>
+            <div class="qr-placeholder">
+                SCAN FOR<br>MORE INFO
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
