@@ -21,17 +21,17 @@ body {
 }
 
 /* Fullscreen mode styles */
-body:fullscreen,
-body:-webkit-full-screen,
-body:-moz-full-screen,
-body:-ms-fullscreen {
+:root:fullscreen,
+:root:-webkit-full-screen,
+:root:-moz-full-screen,
+:root:-ms-fullscreen {
     overflow-y: auto;
 }
 
-body:fullscreen .poster,
-body:-webkit-full-screen .poster,
-body:-moz-full-screen .poster,
-body:-ms-fullscreen .poster {
+:root:fullscreen .poster,
+:root:-webkit-full-screen .poster,
+:root:-moz-full-screen .poster,
+:root:-ms-fullscreen .poster {
     width: 100vw;
     max-width: 100vw;
     min-height: 100vh;
