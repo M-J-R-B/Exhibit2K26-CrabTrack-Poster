@@ -174,3 +174,112 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// AI Molting Detection Demo
+const moltingStages = [
+    {
+        name: 'Pre-molt',
+        description: 'Crab is preparing for molting. Reduced feeding, increased hiding behavior detected.',
+        confidence: () => 85 + Math.floor(Math.random() * 10)
+    },
+    {
+        name: 'Molt',
+        description: 'Active molting phase. Shell hardness critically low, immediate attention recommended.',
+        confidence: () => 90 + Math.floor(Math.random() * 8)
+    },
+    {
+        name: 'Post-molt',
+        description: 'Recently molted. New shell hardening, increased vulnerability period.',
+        confidence: () => 82 + Math.floor(Math.random() * 12)
+    },
+    {
+        name: 'Intermolt',
+        description: 'Normal growth phase. Shell fully hardened, normal feeding patterns observed.',
+        confidence: () => 88 + Math.floor(Math.random() * 10)
+    }
+];
+
+function runAIAnalysis() {
+    const demoState = document.getElementById('demoState');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+
+    // Show message to ask students for demo
+    demoState.className = 'demo-state result';
+    demoState.innerHTML = `
+        <div class="result-content">
+            <div class="demo-icon">👥</div>
+            <div class="demo-text">Live Demo Available</div>
+            <div class="molting-stage">
+                <div class="stage-description" style="text-align: center; font-size: 15px; color: var(--soft-white);">
+                    Please ask our team members for a live demonstration of the AI molting detection system!
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Change button to reset
+    analyzeBtn.innerHTML = '<span class="btn-icon">🔄</span><span class="btn-text">Back</span>';
+    analyzeBtn.style.display = 'flex';
+}
+
+function showResults() {
+    const demoState = document.getElementById('demoState');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+
+    // Pick a random molting stage
+    const stage = moltingStages[Math.floor(Math.random() * moltingStages.length)];
+    const confidence = stage.confidence();
+
+    // Result state
+    demoState.className = 'demo-state result';
+    demoState.innerHTML = `
+        <div class="result-content">
+            <div class="demo-icon">✓</div>
+            <div class="demo-text">Analysis Complete</div>
+
+            <div class="confidence-display">
+                <div class="confidence-label">Detection Confidence</div>
+                <div class="confidence-value">${confidence}%</div>
+            </div>
+
+            <div class="molting-stage">
+                <div class="stage-label">Molting Stage</div>
+                <div class="stage-value">${stage.name.toUpperCase()}</div>
+                <div class="stage-description">${stage.description}</div>
+            </div>
+        </div>
+    `;
+
+    // Show reset button
+    analyzeBtn.innerHTML = '<span class="btn-icon">🔄</span><span class="btn-text">Analyze Again</span>';
+    analyzeBtn.style.display = 'flex';
+}
+
+// Handle analyze button clicks
+document.addEventListener('DOMContentLoaded', () => {
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    if (analyzeBtn) {
+        analyzeBtn.addEventListener('click', () => {
+            const btnText = analyzeBtn.querySelector('.btn-text').textContent;
+            if (btnText === 'Start Analysis') {
+                runAIAnalysis();
+            } else if (btnText === 'Back' || btnText === 'Analyze Again') {
+                resetAIDemo();
+            }
+        });
+    }
+});
+
+function resetAIDemo() {
+    const demoState = document.getElementById('demoState');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+
+    demoState.className = 'demo-state idle';
+    demoState.innerHTML = `
+        <div class="demo-icon">🦀</div>
+        <div class="demo-text">Tap to Analyze</div>
+        <div class="demo-hint">Click to simulate AI detection</div>
+    `;
+
+    analyzeBtn.innerHTML = '<span class="btn-icon">🔍</span><span class="btn-text">Start Analysis</span>';
+}
