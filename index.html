@@ -32,7 +32,8 @@
                     <span class="tagline">Smart Aquaculture Monitoring System</span>
                 </div>
             </div>
-            <p class="subtitle">An IoT-Based Water Quality Monitoring Solution for Crab Farming</p>
+            <p class="subtitle">An Iot-Based Monitoring And Alert System For Molting Detection And Water
+Quality Management In Crab Farming</p>
         </header>
 
         <!-- Main Content -->
@@ -207,16 +208,36 @@
                 <!-- Interactive Demo Area -->
                 <div class="ai-demo-container">
                     <div class="demo-display" id="aiDemo">
-                        <div class="demo-state idle" id="demoState">
-                            <div class="demo-icon">🦀</div>
-                            <div class="demo-text">Tap to Analyze</div>
-                            <div class="demo-hint">Click to simulate AI detection</div>
+                        <div class="carousel-container">
+                            <button class="carousel-arrow left" id="prevBtn">
+                                <span>←</span>
+                            </button>
+
+                            <div class="video-carousel">
+                                <div class="video-slide active" data-video-id="KFiajfeublU">
+                                    <div id="player1" class="youtube-player"></div>
+                                </div>
+                                <div class="video-slide" data-video-id="6a7X20gfNGc">
+                                    <div id="player2" class="youtube-player"></div>
+                                </div>
+                                <div class="video-slide" data-video-id="aDIUY0V-xMw">
+                                    <div id="player3" class="youtube-player"></div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-arrow right" id="nextBtn">
+                                <span>→</span>
+                            </button>
                         </div>
-                        <button class="analyze-btn" id="analyzeBtn">
-                            <span class="btn-icon">🔍</span>
-                            <span class="btn-text">Start Analysis</span>
-                        </button>
+
+                        <div class="video-counter">
+                            <span id="currentVideo">1</span> / <span id="totalVideos">3</span>
+                        </div>
                     </div>
+                    <button class="analyze-btn" id="analyzeBtn">
+                        <span class="btn-icon">▶️</span>
+                        <span class="btn-text">Play Demo</span>
+                    </button>
                 </div>
             </section>
 
@@ -245,6 +266,8 @@
         </footer>
     </div>
 
+    <!-- YouTube iframe API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

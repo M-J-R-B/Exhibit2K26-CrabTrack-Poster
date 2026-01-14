@@ -694,15 +694,120 @@ body.is-fullscreen .poster {
     background: linear-gradient(135deg, rgba(10, 22, 40, 0.95), rgba(13, 40, 71, 0.95));
     border: 2px solid rgba(0, 212, 170, 0.3);
     border-radius: 20px;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
     position: relative;
-    overflow: hidden;
-    min-height: 280px;
+    overflow: visible;
+    min-height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+/* YouTube Carousel Container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.video-carousel {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-slide {
+    display: none;
+    width: 100%;
+}
+
+.video-slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.youtube-player {
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 212, 170, 0.3);
+}
+
+.youtube-player iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 12px;
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+    background: rgba(0, 212, 170, 0.2);
+    border: 2px solid var(--teal-accent);
+    color: var(--teal-accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 212, 170, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 212, 170, 0.4);
+}
+
+.carousel-arrow:active {
+    transform: scale(0.95);
+}
+
+.carousel-arrow.left {
+    margin-right: auto;
+}
+
+.carousel-arrow.right {
+    margin-left: auto;
+}
+
+/* Video Counter */
+.video-counter {
+    color: var(--muted-blue);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.video-counter span {
+    color: var(--teal-accent);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
 }
 
 .demo-state {
